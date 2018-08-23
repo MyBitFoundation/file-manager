@@ -6,6 +6,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import byteSize from './utils/index.js';
 import {default as LoadingAnimation} from './images/loading-bubbles.js';
 const imageExtensions = require('image-extensions');
+const serverUrl = process.env.NODE_ENV === "development" ? process.env.REACT_APP_SERVER : "";
 
 class FileExplorer extends Component {
   constructor(props){
@@ -60,7 +61,7 @@ class FileExplorer extends Component {
       data.append('file', file);
       data.append('path', window.location.pathname)
 
-      axios.post('/upload', data, config)
+      axios.post(`${serverUrl}/upload`, data, config)
         .then((response) => {
           this.pullFolderContents();
         })
@@ -73,8 +74,8 @@ class FileExplorer extends Component {
 
   pullFolderContents(){
     this.loading = true;
-
-    axios.get('/api', {
+    console.log(`${serverUrl}/api`)
+    axios.get(`${serverUrl}/api`, {
       params: {
         path: window.location.pathname
       },
@@ -144,12 +145,15 @@ class FileExplorer extends Component {
     let toRender = [];
     let directorySize = 0;
 
-    let pathsTmp = paths.slice();
-    //order - folders first
-    if(pathsTmp){
-      pathsTmp = pathsTmp.sort((a, b) => {
-        return b.type < a.type;
-      });
+    let pathsTmp = [];
+    if(paths){
+        pathsTmp = paths.slice();
+      //order - folders first
+      if(pathsTmp){
+        pathsTmp = pathsTmp.sort((a, b) => {
+          return b.type < a.type;
+        });
+      }
     }
 
     if(location.pathname !== "/"){
@@ -164,7 +168,7 @@ class FileExplorer extends Component {
 
     if(this.loading){
         toRender.push(
-          <div className="FileExplorer__loadingAnimation">
+          <div key="loadingAnimation" className="FileExplorer__loadingAnimation">
             <LoadingAnimation/>
           </div>
         );
@@ -174,7 +178,7 @@ class FileExplorer extends Component {
       }
       else{
         toRender.push(
-          <div>
+          <div key="allFiles">
             <ul className="FileExplorer__files">
               {pathsTmp.map(path => {
                 //hide hidden files
