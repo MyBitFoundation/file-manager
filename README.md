@@ -10,7 +10,7 @@ REACT_APP_USERNAME=yourusername
 <br/>
 REACT_APP_PASSWORD=yourpassword
 <br/>
-REACT_APP_SERVER=http://localhost:8000
+REACT_APP_SERVER_DEV=http://localhost:8000
 <br/>
 <br/>
 
