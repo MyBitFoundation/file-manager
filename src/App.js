@@ -74,7 +74,6 @@ class FileExplorer extends Component {
 
   pullFolderContents(){
     this.loading = true;
-    console.log(`${serverUrl}/api`)
     axios.get(`${serverUrl}/api`, {
       params: {
         path: window.location.pathname
