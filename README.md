@@ -4,7 +4,7 @@
 * From the root of the folder run ```npm install```
 * From **/server** run ```npm install```
 * Create two folders ```public``` and ```files``` under **/server**.
-* Create ```.env``` file at the root of the project, like so:
+* Create a ```.env``` file at the root of the project, like so:
 <br/>
 REACT_APP_USERNAME=yourusername
 <br/>
