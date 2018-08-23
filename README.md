@@ -10,7 +10,7 @@ REACT_APP_USERNAME=yourusername
 <br/>
 REACT_APP_PASSWORD=yourpassword
 <br/>
-
+<br/>
 ***Note***: these auth details need to match the ones in the server, defined in the file ```users.htpasswd``` under **/server**. Currently the credentials are encrypted using bcrypt. Don't encrypt the credentials in the ```.env``` file.
 
 ## How to build for production and start the server
