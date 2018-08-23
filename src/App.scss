@@ -1,0 +1,144 @@
+@import 'include-media/dist/_include-media.scss';
+
+.FileExplorer{
+  position: relative;
+
+  &__navigating-header{
+    font-size: 20px;
+    margin-bottom: 50px;
+    display: block;
+
+    & span{
+      font-size: 13px;
+      margin-left: 10px;
+      color: #828282;
+    }
+  }
+
+  &__emptyLocation{
+    text-align: center;
+  }
+
+  &__dropzone{
+    width: 80%;
+    height: 200px;
+    border: 1px dashed #2760b7;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+
+    & div{
+      text-align: center;
+      padding: 20px;
+    }
+  }
+
+  &__files{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 20px 0 0 0;
+    margin: 0% 13%;
+
+    @include media("<=tablet") {
+      flex-direction: column;
+    }
+
+
+    & li{
+      font-size: 15px;
+      box-sizing: border-box;
+      justify-content: flex-start;
+      width: 330px;
+      padding-right: 20px;
+      list-style: none;
+      padding: 10px 0;
+
+      @include media("<=tablet") {
+        width: auto;
+      }
+    }
+
+    & a{
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+
+      &:hover{
+        color: #40a9ff;
+        transition: all 0.25s;
+      }
+
+      & span{
+        font-size: 12px;
+        margin-left: 10px;
+        color: #828282;
+      }
+    }
+
+    &--is-folder{
+      &:before{
+        content: ' ';
+        width: 20px;
+        height: 20px;
+        background-image: url('./images/folder.svg');
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+      }
+    }
+
+    &--is-picture{
+      &:before{
+        content: ' ';
+        width: 20px;
+        height: 20px;
+        background-image: url('./images/picture.svg');
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+
+      }
+    }
+
+    &--is-document{
+      &:before{
+        content: ' ';
+        width: 20px;
+        height: 20px;
+        background-image: url('./images/document.svg');
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+      }
+    }
+  }
+
+  &__loadingAnimation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg{
+      fill: #ffffff;
+      width: 60px;
+    }
+  }
+
+  &__no-exists{
+    text-align: center;
+  }
+}
+
