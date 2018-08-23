@@ -6,7 +6,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import byteSize from './utils/index.js';
 import {default as LoadingAnimation} from './images/loading-bubbles.js';
 const imageExtensions = require('image-extensions');
-const serverUrl = process.env.NODE_ENV === "development" ? process.env.REACT_APP_SERVER : "";
+const serverUrl = process.env.NODE_ENV === "development" ? process.env.REACT_APP_SERVER_DEV : "";
 
 class FileExplorer extends Component {
   constructor(props){
