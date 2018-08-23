@@ -14,7 +14,7 @@ REACT_APP_SERVER=http://localhost:8000
 <br/>
 <br/>
 
-***Note***: these auth details need to match the ones in the server, defined in the file ```users.htpasswd``` under **/server**. Currently the credentials are encrypted using bcrypt. Don't encrypt the credentials in the ```.env``` file. Also, the url for the server can also be changed. Make sure not to include a forward slash at the end of it. Also make sure the port matches the port setup in the server.
+***Note***: these auth details need to match the ones in the server, defined in the file ```users.htpasswd``` under **/server**. Currently the credentials are encrypted using bcrypt. Don't encrypt the credentials in the ```.env``` file. The url for the server can be changed. Make sure not to include a forward slash at the end of it. Also make sure the port defined in the ```.env``` file matches the port defined in the server.
 
 ## How to build for production and start the server
 From **/src** run ```npm run build:prod```<br/>
