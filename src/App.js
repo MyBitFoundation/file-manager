@@ -5,8 +5,8 @@ import axios from 'axios';
 import { Route, Switch, Link } from 'react-router-dom';
 import byteSize from './utils/index.js';
 import {default as LoadingAnimation} from './images/loading-bubbles.js';
-import { Credentials } from './constants';
 const imageExtensions = require('image-extensions');
+
 class FileExplorer extends Component {
   constructor(props){
     super(props);
@@ -47,6 +47,10 @@ class FileExplorer extends Component {
     const config = {
       onUploadProgress: function(progressEvent) {
         var percentCompleted = Math.round( (progressEvent.loaded * 100) / progressEvent.total )
+      },
+      auth: {
+        username: process.env.REACT_APP_USERNAME,
+        password: process.env.REACT_APP_PASSWORD,
       }
     }
 
@@ -75,8 +79,8 @@ class FileExplorer extends Component {
         path: window.location.pathname
       },
       auth: {
-        username: Credentials.username,
-        password: Credentials.password,
+        username: process.env.REACT_APP_USERNAME,
+        password: process.env.REACT_APP_PASSWORD,
       }
     }).then((response) => {
         this.oldPath = window.location.pathname;
@@ -224,20 +228,12 @@ class FileExplorer extends Component {
     }
 }
 
-class App extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    return(
-      <div className="App">
-        <Switch>
-          <Route path='*' component={(props) => <FileExplorer {...props}/> }/>
-        </Switch>
-      </div>
-    )
-  }
-}
+const App = () => (
+  <div className="App">
+    <Switch>
+      <Route path='*' component={(props) => <FileExplorer {...props}/> }/>
+    </Switch>
+  </div>
+)
 
 export default App;
