@@ -50,15 +50,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "setup": "npm install & cd server && npm install",
+    "install": "yarn --cwd server",
+    "setup": "yarn; yarn install",
     "test": "node scripts/test.js --env=jsdom",
     "move-build": "del ./server/public/* && mv ./build/* ./server/public",
     "build:fe": "node scripts/build.js",
-    "build:prod": "npm-run-all build move-build",
+    "build:prod": "npm-run-all build:fe move-build",
     "start:fe": "node scripts/start.js",
     "start:server": "cd server && node ./bin/www",
-    "start:prod": "npm-run-all build:prod start:server"
-    
+    "start:prod": "npm-run-all build:prod start:server",
+    "now-start": "npm-run-all build:prod start:server"
   },
   "devDependencies": {
     "del-cli": "^1.1.0",

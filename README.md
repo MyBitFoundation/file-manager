@@ -12,13 +12,14 @@ REACT_APP_SERVER_DEV=http://localhost:8000
 ```
 * Add same username and password with `htpasswd` to `server/users.htpasswd`
 
+## How to run the server
+
+`yarn start:server`
+
 ## How to run the front-end
 
 `yarn start:fe`
 
-## How to run the server
-
-`yarn start:server`
 
 ## How to create the server `htpassword` file
 
@@ -34,6 +35,8 @@ htpasswd -Bc server/users.htpasswd admin
 ### Important notes
 
 * Files with over **2GB** are not supported.
+
+* `yarn install` is meant for the server only.
 
 * `.env` admin/password need to match the ones in the server, defined in 
 the file ```users.htpasswd``` under **/server** (check [http-auth](https://github.com/http-auth/http-auth) 
