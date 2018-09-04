@@ -63,4 +63,8 @@ typings/
 # MacOS
 .DS_Store
 
+# FE
 static/
+
+# Passowrd
+server/users.htpasswd
