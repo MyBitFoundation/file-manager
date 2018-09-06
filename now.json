@@ -1,0 +1,17 @@
+{
+  "name": "assets.mybit.io",
+  "alias": "assets.mybit.io",
+  "dotenv": true,
+  "files": [
+    "config",
+    "public",
+    "scripts",
+    "server",
+    "server/users.htpasswd",
+    "src",
+    ".env",
+    "now.json",
+    "package.json",
+    "yarn.lock"
+  ]
+}
