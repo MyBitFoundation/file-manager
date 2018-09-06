@@ -24,7 +24,7 @@ const basic = auth.basic({
     file: __dirname + "/users.htpasswd"
 });
 
-app.use(express.static('files'))
+app.use(express.static(path.join(__dirname, 'files')))
 
 app.use(function(req, res, next) {
 	 //check if its a file name (assumes it has an extension), if it does, its a public route, else its protected
@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
     }
 });
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/api', function(req, res) {
   const tree = dirTree(__dirname + "/files" + req.query.path);
